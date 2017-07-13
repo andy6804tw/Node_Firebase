@@ -1,0 +1,32 @@
+﻿
+<html>
+<head>
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCQlXL9T1vFTNqpRlEX9SMGPQKX8BrKTds",
+    authDomain: "opendataaqi-5b49f.firebaseapp.com",
+    databaseURL: "https://opendataaqi-5b49f.firebaseio.com",
+    projectId: "opendataaqi-5b49f",
+    storageBucket: "opendataaqi-5b49f.appspot.com",
+    messagingSenderId: "403252305943"
+  };
+  firebase.initializeApp(config);
+</script>
+<script>
+// Initialize Firebase
+var data = [];
+var ref = firebase.database().ref('/');
+  ref.on('value',function(snapshot){
+    data = snapshot.val();
+    var datajson = JSON.stringify(data)
+    document.getElementById('content').innerHTML = datajson;
+  })
+</script>
+</head>
+<body>
+    <p id = 'content'>
+    </p>
+</body>
+</html>
